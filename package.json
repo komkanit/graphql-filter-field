@@ -1,6 +1,6 @@
 {
   "name": "graphql-filter-field",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "filter any field on Schema not just root field",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

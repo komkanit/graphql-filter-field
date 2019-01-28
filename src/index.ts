@@ -5,7 +5,7 @@ import {
   GraphQLFieldMap
 } from 'graphql'
 
-export type Filter = (
+type Filter = (
   field: GraphQLField<any, any, {
     [key: string]: any;
   }>,
@@ -13,7 +13,7 @@ export type Filter = (
   type: GraphQLObjectType<any, any>
 ) => boolean
 
-export function filterFields(schema: GraphQLSchema, filter: Filter) {
+function filterFields(schema: GraphQLSchema, filter: Filter) {
   const typeMap = schema.getTypeMap()
   Object.keys(typeMap).forEach((typeName) => {
     const type = typeMap[typeName]
@@ -29,4 +29,17 @@ export function filterFields(schema: GraphQLSchema, filter: Filter) {
 
   })
   return schema
+}
+
+function withFilterFields (filter: Filter) {
+  return {
+    transformSchema(schema: GraphQLSchema) {
+      return filterFields(schema, filter)
+    }
+  }
+}
+
+export {
+  filterFields,
+  withFilterFields
 }
