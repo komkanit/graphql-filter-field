@@ -1,0 +1,37 @@
+{
+  "name": "graphql-filter-field",
+  "version": "0.1.0",
+  "description": "filter any field on Schema not just root field",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "rm -rf dist && tsc",
+    "test": "npm run build && ava dist/**/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/komcal/graphql-filter-field.git"
+  },
+  "keywords": [
+    "graphql",
+    "schema",
+    "field",
+    "resolver"
+  ],
+  "author": "komcal <kom.sujautra@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/komcal/graphql-filter-field/issues"
+  },
+  "homepage": "https://github.com/komcal/graphql-filter-field#readme",
+  "dependencies": {
+    "graphql": "^14.1.1",
+    "graphql-tools": "^4.0.4"
+  },
+  "devDependencies": {
+    "@types/graphql": "^14.0.5",
+    "ava": "^1.2.0",
+    "typescript": "^3.2.4"
+  }
+}
