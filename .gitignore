@@ -4,3 +4,5 @@ dist
 *.log
 .vscode
 .idea
+.nyc_output
+coverage
