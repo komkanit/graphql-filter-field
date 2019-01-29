@@ -9,6 +9,7 @@ yarn add graphql-filter-field
 
 `filterFields` passes through all GraphQL type.
 ``` javascript
+import { filterFields } from 'graphql-filter-field'
 const typeDefs = `
   type User {
     id: ID
@@ -25,4 +26,16 @@ addMockFunctionsToSchema({ schema })
 const newSchema = filterFields(schema, (field) => {
   return field.name.endsWith('_delete')
 })
+```
+
+Using with [schema transform](https://www.apollographql.com/docs/graphql-tools/schema-transforms.html)
+
+``` javascript
+import { withFilterFields } from 'graphql-filter-field'
+const transformedSchema = transformSchema(schema, [
+  new RenameTypes((name) => `Simple_${name}`),
+  withFilterFields((field) => {
+    return field.name.endsWith('_delete')
+  })
+])
 ```
